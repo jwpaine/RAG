@@ -40,14 +40,14 @@ func main() {
 	}
 
 	// example text chunk
-	text := "I am afraid"
+	text := "What's the answer to life, the universe and everything?"
 	embedding, err := getEmbedding(text)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// retrieving similar embeddings
-	similar, err := db.GetSimilarities(embedding, 5)
+	similar, err := db.GetSimilarities(embedding, 1)
 	if err != nil {
 		log.Fatal(err)
 	}
