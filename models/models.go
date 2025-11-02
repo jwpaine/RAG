@@ -1,8 +1,5 @@
 package models
 
-type Account struct {
-	ID      int
-	Name    string
-	Type    string
-	Balance float64
+type EmbedResponse struct {
+	Embeddings [][]float64 `json:"embeddings"`
 }
