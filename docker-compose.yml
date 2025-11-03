@@ -30,16 +30,16 @@ services:
         condition: service_healthy
 
 
-  embeddings:
-    build:
-      context: .
-      dockerfile: Dockerfile.embed
-    container_name: embeddings
-    restart: always
-    env_file:
-      - .env
-    ports:
-      - "8000:8000"
-    depends_on:
-      pgvector:
-        condition: service_healthy
+  # embeddings:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.embed
+  #   container_name: embeddings
+  #   restart: always
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     pgvector:
+  #       condition: service_healthy
