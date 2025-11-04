@@ -41,7 +41,7 @@ async def get_embedding(text: str) -> list[float]:
 # -----------------------------------------------------------------------------
 # Queries
 # -----------------------------------------------------------------------------
-async def get_closest_neighbors(question: str, limit: int = 5):
+async def get_closest_neighbors(question: str, limit: int = 2):
     """Return nearest neighbors in the vector space for a given question."""
     print(f"Searching for neighbors of: '{question}'")
     embedding = await get_embedding(question)
