@@ -1,7 +1,6 @@
 
 
-THE FIRST BOOK
-
+BOOK_1
 
 I. Of my grandfather Verus I have learned to be gentle and meek, and to
 refrain from all anger and passion. From the fame and memory of him that
@@ -329,11 +328,7 @@ rules and precepts. As for thy thirst after books, away with it with all
 speed, that thou die not murmuring and complaining, but truly meek and
 well satisfied, and from thy heart thankful unto the gods.
 
-
-
-
-THE SECOND BOOK
-
+BOOK_2
 
 I. Remember how long thou hast already put off these things, and how
 often a certain day and hour as it were, having been set unto thee by
@@ -524,15 +519,9 @@ elements, of which every creature is composed. And if the elements
 themselves suffer nothing by this their perpetual conversion of one into
 another, that dissolution, and alteration, which is so common unto all,
 why should it be feared by any? Is not this according to nature? But
-nothing that is according to nature can be evil.
+nothing that is according to nature can be evil. _Whilst I was at Carnuntum._
 
-_Whilst I was at Carnuntum._
-
-
-
-
-THE THIRD BOOK
-
+BOOK_3
 
 I. A man must not only consider how daily his life wasteth and
 decreaseth, but this also, that if he live long, he cannot be certain,
@@ -821,11 +810,7 @@ life, through which a man must pass pure, ever ready to depart, and
 willing of himself without any compulsion to fit and accommodate himself
 to his proper lot and portion.
 
-
-
-
-THE FOURTH BOOK
-
+BOOK_4
 
 I. That inward mistress part of man if it be in its own true natural
 temper, is towards all worldly chances and events ever so disposed and
@@ -1315,11 +1300,7 @@ words and deeds, ever to follow that which is most sound and perfect.
 For such a resolution will free a man from all trouble, strife,
 dissembling, and ostentation.
 
-
-
-
-THE FIFTH BOOK
-
+BOOK_5
 
 I. In the morning when thou findest thyself unwilling to rise, consider
 with thyself presently, it is to go about a man's work that I am stirred
@@ -1786,17 +1767,11 @@ are things that others much care for, and highly esteem of. Wilt thou
 therefore be a fool too? Once I was; let that suffice.
 
 XXX. Let death surprise me when it will, and where it will, I may be
-εὔμοιρος, or a happy man, nevertheless.
-
-For he is a happy man, who in his lifetime dealeth unto himself a happy
+εὔμοιρος, or a happy man, nevertheless. For he is a happy man, who in his lifetime dealeth unto himself a happy
 lot and portion. A happy lot and portion is, good inclinations of the
 soul, good desires, good actions.
 
-
-
-
-THE SIXTH BOOK
-
+BOOK_6
 
 I. The matter itself, of which the universe doth consist, is of itself
 very tractable and pliable. That rational essence that doth govern it,
@@ -2004,7 +1979,7 @@ dead both came to one. For either they were both resumed into those
 original rational essences from whence all things in the world are
 propagated; or both after one fashion were scattered into atoms.
 
-XXIII Consider how many different things, whether they concern our
+XXIII. Consider how many different things, whether they concern our
 bodies, or our souls, in a moment of time come to pass in every one of
 us, and so thou wilt not wonder if many more things or rather all things
 that are done, can at one time subsist, and coexist in that both one and
@@ -2117,7 +2092,7 @@ the mire) the necessary consequences of goodly fair things. Think not
 of these therefore, as things contrary to those which thou dost much
 honour, and respect; but consider in thy mind the true fountain of all.
 
-XXXIV He that seeth the things that are now, hath Seen all that either
+XXXIV. He that seeth the things that are now, hath Seen all that either
 was ever, or ever shall be, for all things are of one kind; and all like
 one unto another. Meditate often upon the connection of all things in
 the world; and upon the mutual relation that they have one unto another.
@@ -2308,11 +2283,7 @@ LIV. What manner of men they be whom they seek to please, and what to
 get, and by what actions: how soon time will cover and bury all things,
 and how many it hath already buried!
 
-
-
-
-THE SEVENTH BOOK
-
+BOOK_7
 
 I. What is wickedness? It is that which many time and often thou hast
 already seen and known in the world. And so oft as anything doth happen
@@ -2557,10 +2528,8 @@ between virtue and vice are indifferent unto thee. Finally, love
 mankind; obey God.
 
 XXII. All things (saith he) are by certain order and appointment. And
-what if the elements only.
-
-It will suffice to remember, that all things in general are by certain
-order and appointment: or if it be but few. And as concerning death,
+what if the elements only. It will suffice to remember, that all things 
+in general are by certain order and appointment: or if it be but few. And as concerning death,
 that either dispersion, or the atoms, or annihilation, or extinction,
 or translation will ensue. And as concerning pain, that that which is
 intolerable is soon ended by death; and that which holds long must needs
@@ -2847,11 +2816,7 @@ his reasonable and principal creatures, that are the proper object of
 his particular care and providence. This often thought upon, will much
 conduce to thy tranquillity.
 
-
-
-
-THE EIGHTH BOOK
-
+BOOK_8
 
 I. This also, among other things, may serve to keep thee from vainglory;
 if thou shalt consider, that thou art now altogether incapable of the
@@ -3390,16 +3355,11 @@ the mind when it is wary and cautelous, and by way of diligent
 circumspection turneth herself many ways, may then as well be said to
 go straight on to the object, as when it useth no such circumspection.
 
-
 LVIII. To pierce and penetrate into the estate of every one's
 understanding that thou hast to do with: as also to make the estate of
 thine own open, and penetrable to any other.
 
-
-
-
-THE NINTH BOOK
-
+BOOK_9
 
 I. He that is unjust, is also impious. For the nature of the universe,
 having made all reasonable creatures one for another, to the end that
@@ -3878,11 +3838,7 @@ though but in middle things, as in matter of wealth, life, preferment,
 and the like, doth help to further their desires he doth that for which
 he was made, and therefore can require no more.
 
-
-
-
-THE TENTH BOOK
-
+BOOK_10
 
 I. O my soul, the time I trust will be, when thou shalt be good, simple,
 single, more open and visible, than that body by which it is enclosed.
@@ -4193,7 +4149,7 @@ thou hast thy mind: or thy life is cut off; and then mayst thou
 rejoice that thou hast ended thy charge. One of these must needs be.
 Be therefore of good comfort.
 
-XXIV Let it always appear and be manifest unto thee that solitariness,
+XXIV. Let it always appear and be manifest unto thee that solitariness,
 and desert places, by many philosophers so much esteemed of and
 affected, are of themselves but thus and thus; and that all things are
 them to them that live in towns, and converse with others as they are
@@ -4418,11 +4374,7 @@ parts are of themselves of no more use unto us, than the shuttle is
 of itself to the weaver, or the pen to the writer, or the whip to the
 coachman.
 
-
-
-
-THE ELEVENTH BOOK
-
+BOOK_11
 
 I. The natural properties, and privileges of a reasonable soul are: That
 she seeth herself; that she can order, and compose herself: that
@@ -4821,11 +4773,7 @@ and corrupted? Of those whose reason is sound and perfect. Why then
 labour ye not for such? Because we have them already. What then do ye so
 strive and contend between you?'
 
-
-
-
-THE TWELFTH BOOK
-
+BOOK_12
 
 I. Whatsoever thou doest hereafter aspire unto, thou mayest even now
 enjoy and possess, if thou doest not envy thyself thine own happiness.
