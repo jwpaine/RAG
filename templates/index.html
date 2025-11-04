@@ -13,9 +13,10 @@
             <input type="submit" value="Submit">
         </form>
         {% if answers %}
-            <h2>Yoda:</h2>
+            <h2>Macrus:</h2>
             {% for answer in answers %}
-                {{ answer.content }}
+                {{answer.title}} : {{ answer.content }}
+                <br><br>
             {% endfor %}
             </ul>
         {% endif %}

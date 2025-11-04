@@ -38,7 +38,7 @@ async def get_closest_neighbors(question: str, limit: int = 2):
     vector_str = "[" + ",".join(map(str, embedding)) + "]"
     return await query(
         """
-        SELECT content
+        SELECT title, content
         FROM documents
         ORDER BY embedding <-> $1
         LIMIT $2;
@@ -69,13 +69,13 @@ async def handle_question(request: Request, question: str = Form(...)):
 #     title = "North Carolina"
 #     embedding = await get_embedding(content)
 #     vector_str = "[" + ",".join(map(str, embedding)) + "]"
-#     await execute(
-#         """
-#         INSERT INTO documents (content, embedding, title)
-#         VALUES ($1, $2, $3);
-#         """,
-#         content, vector_str, title
-#     )
+    # await execute(
+    #     """
+    #     INSERT INTO documents (content, embedding, title)
+    #     VALUES ($1, $2, $3);
+    #     """,
+    #     content, vector_str, title
+    # )
 
 # -----------------------------------------------------------------------------
 # Entry Point
