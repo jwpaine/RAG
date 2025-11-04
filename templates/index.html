@@ -1,0 +1,23 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <main>
+        <form id="question-form" method="post" action="/question">
+            <label for="question">Enter your question:</label><br>
+            <input type="text" id="question" name="question" size="50"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if answers %}
+            <h2>Answers:</h2>
+            {% for answer in answers %}
+                {{ answer.content }}
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </main>
+</body>
+
+</html>

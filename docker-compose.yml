@@ -30,11 +30,11 @@ services:
         condition: service_healthy
 
 
-  # embeddings:
+  # embedding-server:
   #   build:
   #     context: .
-  #     dockerfile: Dockerfile.embed
-  #   container_name: embeddings
+  #     dockerfile: Dockerfile.serve
+  #   container_name: embedding-server
   #   restart: always
   #   env_file:
   #     - .env
