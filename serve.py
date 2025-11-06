@@ -8,7 +8,7 @@ from fastapi.templating import Jinja2Templates
 
 from dotenv import load_dotenv
 
-from database import query, execute
+from database import query, execute, init_db
 from embeddings import get_embedding
 
 # -----------------------------------------------------------------------------
@@ -16,7 +16,7 @@ from embeddings import get_embedding
 # -----------------------------------------------------------------------------
 load_dotenv()
 
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 HOST = "0.0.0.0"
 PORT = 8000
 
@@ -38,7 +38,7 @@ async def get_closest_neighbors(question: str, limit: int = 2):
     vector_str = "[" + ",".join(map(str, embedding)) + "]"
     return await query(
         """
-        SELECT title, content
+        SELECT english, spanish
         FROM documents
         ORDER BY embedding <-> $1
         LIMIT $2;
@@ -58,28 +58,20 @@ async def render_home(request: Request):
 async def handle_question(request: Request, question: str = Form(...)):
     """Accept a user question and return nearest content matches."""
     answers = await get_closest_neighbors(question)
+    # print(f"Found {answers} answers.")
+    # if not answers:
+    #     return templates.TemplateResponse("index.html", {"request": request, "msg": "No answers found."})
     return templates.TemplateResponse("index.html", {"request": request, "answers": answers})
 
 # -----------------------------------------------------------------------------
 # Startup
 # -----------------------------------------------------------------------------
-# @app.on_event("startup")
-# async def insert_sample_data():
-#     content = "North Carolina is a great state"
-#     title = "North Carolina"
-#     embedding = await get_embedding(content)
-#     vector_str = "[" + ",".join(map(str, embedding)) + "]"
-    # await execute(
-    #     """
-    #     INSERT INTO documents (content, embedding, title)
-    #     VALUES ($1, $2, $3);
-    #     """,
-    #     content, vector_str, title
-    # )
+
 
 # -----------------------------------------------------------------------------
 # Entry Point
 # -----------------------------------------------------------------------------
 if __name__ == "__main__":
     import uvicorn
+    init_db()
     uvicorn.run("serve:app", host=HOST, port=PORT, reload=False)

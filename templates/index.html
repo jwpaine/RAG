@@ -13,12 +13,14 @@
             <input type="submit" value="Submit">
         </form>
         {% if answers %}
-            <h2>Macrus:</h2>
             {% for answer in answers %}
-                {{answer.title}} : {{ answer.content }}
+                {{answer.english}} : {{ answer.spanish }}
                 <br><br>
             {% endfor %}
             </ul>
+        {% endif %}
+        {% if msg %}
+            <p>{{ msg }}</p>
         {% endif %}
     </main>
 </body>

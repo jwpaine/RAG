@@ -28,6 +28,7 @@ async def execute(query, *args):
         return await conn.execute(query, *args)
     
 async def init_db():
+    print("Initializing database...")
     pool = await get_pool()
     async with pool.acquire() as conn:
         await conn.execute("""
@@ -35,11 +36,10 @@ async def init_db():
                             
             CREATE TABLE IF NOT EXISTS documents (
                 id SERIAL PRIMARY KEY,
-                content TEXT NOT NULL,
+                english TEXT NOT NULL,
+                spanish TEXT NOT NULL,
                 embedding VECTOR(384), -- all-MiniLM-L6-v2 embedding size
-                title TEXT,
-                metadata JSONB DEFAULT '{}'::jsonb,
-                created_at TIMESTAMP DEFAULT NOW()
+                metadata JSONB DEFAULT '{}'::jsonb
             );
         """)
 
