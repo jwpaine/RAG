@@ -16,7 +16,6 @@ from embeddings import get_embedding
 # -----------------------------------------------------------------------------
 load_dotenv()
 
-MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 HOST = "0.0.0.0"
 PORT = 8000
 
@@ -34,7 +33,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 async def get_closest_neighbors(question: str, limit: int = 2):
     """Return nearest neighbors in the vector space for a given question."""
     print(f"Searching for neighbors of: '{question}'")
-    embedding = await get_embedding(MODEL_NAME, question)
+    embedding = await get_embedding(question)
     vector_str = "[" + ",".join(map(str, embedding)) + "]"
     return await query(
         """

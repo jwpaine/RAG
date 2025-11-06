@@ -2,13 +2,11 @@ from database import execute, init_db
 from embeddings import get_embedding
 import asyncio
 
-MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 NUM_CHUNKS = 8
-
 
 async def process_chunk(chunk, chunk_id, total_chunks):
     for i, (english, spanish) in enumerate(chunk, start=1):
-        embedding = await get_embedding(MODEL, spanish)
+        embedding = await get_embedding(spanish)
         vector_str = "[" + ",".join(map(str, embedding)) + "]"
         await execute(
             """
