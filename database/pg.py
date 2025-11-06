@@ -8,7 +8,7 @@ async def get_pool():
     if _pool is None:
         _pool = await asyncpg.create_pool(
             host=os.getenv("PG_HOST", "localhost"),
-            port=os.getenv("PG_PORT", "5432"),
+            port=os.getenv("PG_PORT", "54321"),
             database=os.getenv("PG_DB", "vectordb"),
             user=os.getenv("PG_USER", "postgres"),
             password=os.getenv("PG_PASSWORD", "postgres"),
