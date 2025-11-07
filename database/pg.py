@@ -34,10 +34,10 @@ async def init_db():
         await conn.execute("""
             CREATE EXTENSION IF NOT EXISTS vector;
                             
-            CREATE TABLE IF NOT EXISTS documents (
+            CREATE TABLE IF NOT EXISTS fables (
                 id SERIAL PRIMARY KEY,
-                english TEXT NOT NULL,
-                spanish TEXT NOT NULL,
+                title TEXT NOT NULL,
+                content TEXT NOT NULL,
                 embedding VECTOR(384), -- all-MiniLM-L6-v2 embedding size
                 metadata JSONB DEFAULT '{}'::jsonb
             );

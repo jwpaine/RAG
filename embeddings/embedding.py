@@ -1,7 +1,7 @@
 from sentence_transformers import SentenceTransformer
 import asyncio
 
-MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 model = SentenceTransformer(MODEL_NAME)
 
 """Generate a normalized embedding for the given text."""

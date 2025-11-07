@@ -1,45 +1,45 @@
-version: "3.9"
+# version: "3.9"
 
-services:
-  pgvector:
-    image: ankane/pgvector
-    container_name: pgvector
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: vectordb
-    ports:
-      - "5432:5432"
-    volumes:
-      - /var/containers/postgresql/data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+# services:
+#   pgvector:
+#     image: ankane/pgvector
+#     container_name: pgvector
+#     restart: always
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_DB: vectordb
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - /var/containers/postgresql/data:/var/lib/postgresql/data
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U postgres"]
+#       interval: 5s
+#       timeout: 5s
+#       retries: 5
 
-  adminer:
-    image: adminer
-    container_name: adminer
+#   adminer:
+#     image: adminer
+#     container_name: adminer
+#     restart: always
+#     ports:
+#       - "8080:8080"
+#     depends_on:
+#       pgvector:
+#         condition: service_healthy
+
+
+  embedding-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.serve
+    container_name: embedding-server
     restart: always
+    env_file:
+      - .env
     ports:
-      - "8080:8080"
+      - "8000:8000"
     depends_on:
       pgvector:
         condition: service_healthy
-
-
-  # embedding-server:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.serve
-  #   container_name: embedding-server
-  #   restart: always
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - "8000:8000"
-  #   depends_on:
-  #     pgvector:
-  #       condition: service_healthy

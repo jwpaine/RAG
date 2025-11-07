@@ -19,6 +19,23 @@ main {
   width: 100%;
 }
 
+span.question {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #e6f6ea;
+  margin-bottom: 15px;
+}
+
+span.answer {
+  padding: 5px 0px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+
 label {
   font-weight: 600;
   color: #9bcc50;

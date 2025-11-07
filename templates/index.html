@@ -12,16 +12,17 @@
             <input type="text" id="question" name="question" size="50"><br><br>
             <input type="submit" value="Submit">
         </form>
+       
+        <div>
         {% if answers %}
             {% for answer in answers %}
-                {{answer.english}} : {{ answer.spanish }}
-                <br><br>
+                <span class="question">{{answer.title}}</span>
+                <span class="answer">{{answer.content}}</span>
+                <!-- <p>distance: {{answer.distance}}</p> -->
             {% endfor %}
-            </ul>
+         
         {% endif %}
-        {% if msg %}
-            <p>{{ msg }}</p>
-        {% endif %}
+        </div>
     </main>
 </body>
 
