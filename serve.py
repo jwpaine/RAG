@@ -30,7 +30,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # -----------------------------------------------------------------------------
 # Queries
 # -----------------------------------------------------------------------------
-async def get_closest_neighbors(question: str, limit: int = 5):
+async def get_closest_neighbors(question: str, limit: int = 2):
     """Return nearest neighbors in the vector space for a given question."""
     print(f"Searching for neighbors of: '{question}'")
     embedding = await get_embedding(question)
