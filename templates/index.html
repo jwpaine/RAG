@@ -8,22 +8,23 @@
 <body>
     <main>
         <form id="question-form" method="post" action="/question">
-            <label for="question">Search Aesop's Fables by theme:</label><br>
-            <input type="text" id="question" name="question" size="50"><br><br>
-            <input type="submit" value="Submit">
+            <div class="form-group">
+                <label for="question">Enter Text</label>
+                <input type="text" id="question" name="question" size="50" placeholder="Type something..." />
+            </div>
+
+            <input type="submit" value="Submit" />
         </form>
-       
-        <div>
-        {% if answers %}
+
+        <div class="answers">
+            {% if answers %}
             {% for answer in answers %}
-                <span class="question">{{answer.title}}</span>
-                <span class="answer">{{answer.content}}</span>
-                <!-- <p>distance: {{answer.distance}}</p> -->
+            <span class="answer">{{ answer.label }}</span>
             {% endfor %}
-         
-        {% endif %}
+            {% endif %}
         </div>
     </main>
+
 </body>
 
 </html>

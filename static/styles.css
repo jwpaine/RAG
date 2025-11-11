@@ -1,54 +1,54 @@
-
-body {
-  background-color: #0b0f0c;
-  color: #c9ffcb;
-  font-family: system-ui, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 40px;
-}
-
-main {
-  background: #121815;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 255, 123, 0.2);
-  max-width: 600px;
-  width: 100%;
-}
-
-span.question {
-  display: block;
-  margin-top: 20px;
-  font-size: 1.5em;
-  color: #e6f6ea;
-  margin-bottom: 15px;
-}
-
-span.answer {
-  padding: 5px 0px;
-}
-
-div {
-  display: flex;
-  flex-direction: column;
+.form-group {
+  position: relative;
+  margin-bottom: 24px;
 }
 
 label {
+  display: block;
   font-weight: 600;
-  color: #9bcc50;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00ff7b, #9bcc50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+label::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #00ff7b, #9bcc50);
+  box-shadow: 0 0 8px rgba(0, 255, 123, 0.6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.form-group:hover label::after {
+  transform: scaleX(1);
 }
 
 input[type="text"] {
   width: 100%;
   padding: 10px 12px;
-  margin-top: 8px;
   border: 1px solid #00ff7b;
   border-radius: 8px;
   background: #0d140f;
   color: #e6f6ea;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: #9bcc50;
+  box-shadow: 0 0 8px rgba(0, 255, 123, 0.4);
 }
 
 input[type="submit"] {
@@ -68,11 +68,12 @@ input[type="submit"]:hover {
   transform: translateY(-1px);
 }
 
-h2 {
-  margin-top: 28px;
-  color: #9bcc50;
+.answers {
+  display: flex;
+  flex-direction: column;
 }
 
-ul, h2, label, input {
-  display: block;
+span.answer {
+  padding: 5px 0px;
+  color: #a3ffb3;
 }

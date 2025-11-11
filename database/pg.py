@@ -7,8 +7,8 @@ async def get_pool():
     global _pool
     if _pool is None:
         _pool = await asyncpg.create_pool(
-            host=os.getenv("PG_HOST", "192.168.1.110"),
-            port=os.getenv("PG_PORT", "54321"),
+            host=os.getenv("PG_HOST", "pgvector"),
+            port=os.getenv("PG_PORT", "5432"),
             database=os.getenv("PG_DB", "vectordb"),
             user=os.getenv("PG_USER", "postgres"),
             password=os.getenv("PG_PASSWORD", "postgres"),
@@ -34,12 +34,10 @@ async def init_db():
         await conn.execute("""
             CREATE EXTENSION IF NOT EXISTS vector;
                             
-            CREATE TABLE IF NOT EXISTS fables (
+            CREATE TABLE IF NOT EXISTS emotions (
                 id SERIAL PRIMARY KEY,
-                title TEXT NOT NULL,
-                content TEXT NOT NULL,
-                embedding VECTOR(384), -- all-MiniLM-L6-v2 embedding size
-                metadata JSONB DEFAULT '{}'::jsonb
+                label TEXT NOT NULL,
+                embedding VECTOR(384) -- all-MiniLM-L6-v2 embedding size
             );
         """)
 

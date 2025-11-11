@@ -1,58 +1,76 @@
 from database import execute, init_db
 from embeddings import get_embedding
 import asyncio
+import csv
 
 NUM_CHUNKS = 8
 
+# Columns before emotions begin
+NON_EMOTION_COLUMNS = [
+    "text", "id", "author", "subreddit", "link_id", "parent_id",
+    "created_utc", "rater_id", "example_very_unclear"
+]
+
 async def process_chunk(chunk, chunk_id, total_chunks):
-    for i, (english, spanish) in enumerate(chunk, start=1):
-        embedding = await get_embedding(spanish)
+    """Process a subset of (label, text) emotion pairs concurrently."""
+    for i, (label, text) in enumerate(chunk, start=1):
+        embedding = await get_embedding(text)
         vector_str = "[" + ",".join(map(str, embedding)) + "]"
+
+        # print label and first 60 chars of text for verification
+        # print(f"label: {label}, text: {text[:60]}...")
+
         await execute(
             """
-            INSERT INTO documents (english, spanish, embedding)
-            VALUES ($1, $2, $3);
+            INSERT INTO emotions (label, embedding)
+            VALUES ($1, $2);
             """,
-            english, spanish, vector_str
+            label, vector_str
         )
+
         if i % 20 == 0:
             print(f"[Chunk {chunk_id}/{total_chunks}] Inserted {i} records.")
 
-    print(f"[Chunk {chunk_id}/{total_chunks}] Done ({len(chunk)} records)")
+    print(f"[Chunk {chunk_id}/{total_chunks}] Done ({len(chunk)} records).")
 
 
 async def main():
-    # Initialize DB connection once
     await init_db()
 
-    file = "data/introductions.csv"
+    file = "data/emotions.csv"
     print(f"Processing file: {file}")
 
-    # Load and clean data
-    with open(file, "r", encoding="utf-8") as f:
-        lines = f.readlines()[1:]  # skip header
+    labeled_pairs = []
 
-    pairs = []
-    for line in lines:
-        parts = line.strip().split(",")
-        if len(parts) >= 2:
-            english, spanish = parts[0].strip(), parts[1].strip()
-            pairs.append((english, spanish))
+    # --- Parse CSV safely ---
+    with open(file, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
 
-    total = len(pairs)
+        # Derive emotion column names dynamically
+        emotion_columns = [c for c in reader.fieldnames if c not in NON_EMOTION_COLUMNS]
+
+        for row in reader:
+            text = row.get("text", "").strip()
+            if not text:
+                continue
+
+            # Each row can have multiple '1's (multi-label)
+            for emotion in emotion_columns:
+                if row.get(emotion, "0") == "1":
+                    labeled_pairs.append((emotion, text))
+
+    total = len(labeled_pairs)
     chunk_size = (total // NUM_CHUNKS) + 1
-    chunks = [pairs[i:i + chunk_size] for i in range(0, total, chunk_size)]
+    chunks = [labeled_pairs[i:i + chunk_size] for i in range(0, total, chunk_size)]
 
-    print(f"Split {total} records into {len(chunks)} chunks.")
+    print(f"Split {total} (label, text) records into {len(chunks)} chunks.")
 
-    # Process chunks concurrently (share the same DB connection)
     tasks = [
         asyncio.create_task(process_chunk(chunk, i + 1, len(chunks)))
         for i, chunk in enumerate(chunks)
     ]
-
     await asyncio.gather(*tasks)
-    print("All chunks processed successfully.")
+    print("🎉 All chunks processed successfully.")
 
 
 if __name__ == "__main__":

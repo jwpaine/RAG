@@ -1,21 +1,19 @@
-# Base lightweight Python image
 FROM python:3.11-slim
 
-# Set working directory
 WORKDIR /app
 
-# Copy files
-COPY embed_server.py ./
-COPY .env ./
+# Copy everything you need into the image
+COPY serve.py ./
+COPY database ./database
+COPY embeddings ./embeddings
+COPY static ./static
+COPY templates ./templates
 
-# Create virtual environment inside container
 RUN python3 -m venv venv \
     && . venv/bin/activate \
     && pip install --upgrade pip \
     && pip install fastapi uvicorn sentence-transformers python-dotenv asyncpg python-multipart
 
-# Expose port
 EXPOSE 8000
 
-# Default command
-CMD ["/app/venv/bin/python", "embed_server.py"]
+CMD ["/app/venv/bin/python", "serve.py"]
